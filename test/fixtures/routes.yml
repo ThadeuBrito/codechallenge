@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_station_id: MyString
+  destination_station_id: MyString
+  line_id: MyString
+
+two:
+  origin_station_id: MyString
+  destination_station_id: MyString
+  line_id: MyString

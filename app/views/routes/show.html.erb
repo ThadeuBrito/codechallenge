@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin station:</strong>
+  <%= @route.origin_station_id %>
+</p>
+
+<p>
+  <strong>Destination station:</strong>
+  <%= @route.destination_station_id %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @route.line_id %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
