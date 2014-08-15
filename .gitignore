@@ -1,0 +1,7 @@
+.DS_Store
+.bundle
+log/*.log
+tmp/**/*
+public/files
+public/uploads
+db/schema.rb
