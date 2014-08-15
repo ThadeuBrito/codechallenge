@@ -23,7 +23,6 @@ stations_csv.each do |row|
   @station.save!
 end
 
-
 # IMPORT LINES DATA
 # OBS: IMPORT ROUTES LIKE LINES
 lines_csv_file = File.read('data/routes.csv')
@@ -35,4 +34,16 @@ lines_csv.each do |row|
   @line.colour = row.to_hash['colour']
   @line.stripe = row.to_hash['stripe']
   @line.save!
+end
+
+# IMPORT ROUTES DATA
+# OBS: IMPORT LINES LIKE ROUTES
+routes_csv_file = File.read('data/lines.csv')
+routes_csv = CSV.parse(routes_csv_file, :headers => true)
+routes_csv.each do |row|
+  @routes                        = Route.new
+  @routes.origin_station_id      = row.to_hash['station1']
+  @routes.destination_station_id = row.to_hash['station2']
+  @routes.line_id                = row.to_hash['line']
+  @routes.save!
 end
