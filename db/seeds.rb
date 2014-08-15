@@ -8,10 +8,11 @@
 
 require 'csv'
 
+# IMPORT STATIONS DATA
 stations_csv_file = File.read('data/stations.csv')
-station_csv = CSV.parse(stations_csv_file, :headers => true)
-station_csv.each do |row|
-  @station = Station.new
+stations_csv = CSV.parse(stations_csv_file, :headers => true)
+stations_csv.each do |row|
+  @station             = Station.new
   @station.id          = row.to_hash['id']
   @station.latitude    = row.to_hash['latitude']
   @station.longitude   = row.to_hash['longitude']
@@ -20,4 +21,18 @@ station_csv.each do |row|
   @station.total_lines = row.to_hash['total_lines']
   @station.rail        = row.to_hash['rail']
   @station.save!
+end
+
+
+# IMPORT LINES DATA
+# OBS: IMPORT ROUTES LIKE LINES
+lines_csv_file = File.read('data/routes.csv')
+lines_csv = CSV.parse(lines_csv_file, :headers => true)
+lines_csv.each do |row|
+  @line        = Line.new
+  @line.id     = row.to_hash['line']
+  @line.name   = row.to_hash['name']
+  @line.colour = row.to_hash['colour']
+  @line.stripe = row.to_hash['stripe']
+  @line.save!
 end
